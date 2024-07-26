@@ -1,6 +1,8 @@
-# Nao mexa nesse arquivo
-# Para resolver o TP modifique os arquivos
-# 
+####################################################################
+# Nao mexa nesse arquivo !!
+# Para resolver o TP modifique os arquivos exercicio_*.py que podem ser acessados no lado esquerdo.
+####################################################################
+
 def escrever_cabecalho(i):
   WIDTH = 20
   print("")
