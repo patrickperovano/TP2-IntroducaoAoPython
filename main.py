@@ -1,9 +1,13 @@
-nome = "Mateus"
-sobrenome = "Oliveira"
+# Adicione seu nome e sobrenome aqui
+nome = ""
+sobrenome = ""
 
+if not nome and not sobrenome:
+    print("Você deve adicionar seu nome e sobrenome na variável 'nome' e 'sobrenome'")
+    raise Exception("Você deve adicionar seu nome e sobrenome na variável 'nome' e 'sobrenome'")
 
 ####################################################################
-# Nao mexa nesse arquivo !!
+# Nao mexa nesse arquivo a partir DAQUI
 # Para resolver o TP modifique os arquivos exercicio_*.py que podem ser acessados no lado esquerdo.
 ####################################################################
 import io

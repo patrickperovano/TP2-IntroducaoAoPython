@@ -6,14 +6,23 @@ from pygments.formatters import HtmlFormatter
 from pygments.lexers import PythonLexer
 from weasyprint import HTML
 
+def listar_exercicios():
+    exercicios = [f for f in os.listdir('./') if f.endswith(".py") and "exercicio" in f]
+    exercicios.sort()
+
+    return exercicios
+
+def submissao_filename(nome, sobrenome, ext='pdf'):
+    return f"{nome.replace(' ','_')}_{sobrenome.replace(' ', '_')}_TP1.{ext}"
+
 
 # Function to read content from .py files
-def build_exercicios_html(directory, outputs):
+def build_exercicios_html(outputs):
     py_files_content = ""
-    files = [f for f in os.listdir(directory) if f.endswith(".py") and "exercicio" in f]
-    files.sort()
+    files = listar_exercicios()
+    
     for filename, output in zip(files, outputs):
-        with open(os.path.join(directory, filename), "r") as file:
+        with open(os.path.join('./', filename), "r") as file:
             highlighted_code = highlight(file.read(), PythonLexer(), HtmlFormatter())
             py_files_content += f"<h1>{filename}</h1><pre>{highlighted_code}</pre><br>"        
             py_files_content += f"<h2>Saída</h2><pre class=terminal>{output}</pre><br>"
@@ -47,16 +56,16 @@ def gerar_pdf(nome, sobrenome, std_output):
         </style>
     </head>
     <body>
-        {build_exercicios_html('./', split_exercicios(std_output))}
+        <h1> Introdução a programação com Python - TP1 </h1>
+        <h2>Nome: {nome} {sobrenome}</h2>
+        
+        {build_exercicios_html(split_exercicios(std_output))}
     </body>
     </html>
     """
-
-    with open(f"{nome}_{sobrenome}.html", "w") as o:
-        o.write(html_content)
         
     html_with_style = html_content
-    HTML(string=html_with_style).write_pdf(f"{nome}_{sobrenome}_TP1.pdf")
+    HTML(string=html_with_style).write_pdf(submissao_filename(nome, sobrenome))
 
 
 def split_exercicios(std_output):
@@ -72,7 +81,6 @@ def split_exercicios(std_output):
         exercicios.append(match.strip())
 
     assert len(matches) == 16
-
     return exercicios
 
     
@@ -80,3 +88,22 @@ def split_exercicios(std_output):
 def gerar_submissao(nome, sobrenome, std_output):
     split_exercicios(std_output)
     gerar_pdf(nome, sobrenome, std_output)
+
+    arquivos = listar_exercicios() + [submissao_filename(nome, sobrenome)]
+
+
+    zip_filename = submissao_filename(nome, sobrenome, 'zip')
+
+    #Zip files
+    import zipfile
+    with zipfile.ZipFile(zip_filename, 'w') as zip:
+        for arquivo in arquivos:
+            zip.write(arquivo)
+            
+        
+
+
+    
+            
+
+    
