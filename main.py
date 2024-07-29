@@ -2,7 +2,7 @@
 nome = ""
 sobrenome = ""
 
-if not nome and not sobrenome:
+if not nome or not sobrenome:
     print("Você deve adicionar seu nome e sobrenome na variável 'nome' e 'sobrenome'")
     raise Exception("Você deve adicionar seu nome e sobrenome na variável 'nome' e 'sobrenome'")
 

@@ -52,6 +52,9 @@ def gerar_pdf(nome, sobrenome, std_output):
                 background-color: #000000;
                 color: #00FF00;
                 font-family: monospace;
+                white-space: pre-wrap; 
+                word-wrap: break-word; 
+                width: 100%;
             }}
         </style>
     </head>
