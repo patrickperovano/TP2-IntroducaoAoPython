@@ -1,3 +1,7 @@
+####################################################################
+# Nao mexa nesse arquivo
+# Para resolver o TP modifique os arquivos exercicio_*.py que podem ser acessados no lado esquerdo.
+####################################################################
 
 import os
 import re
