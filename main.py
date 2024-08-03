@@ -1,25 +1,139 @@
-# Adicione seu nome e sobrenome aqui
-nome = "Coloque"
-sobrenome = "seu nome no arquivo main"
+
+from identificacao import nome, sobrenome 
 
 if not nome or not sobrenome:
-    print("Você deve adicionar seu nome e sobrenome na variável 'nome' e 'sobrenome'")
-    raise Exception("Você deve adicionar seu nome e sobrenome na variável 'nome' e 'sobrenome'")
+    print(
+        "Você deve adicionar seu nome e sobrenome na variável 'nome' e 'sobrenome'"
+    )
+    raise Exception(
+        "Você deve adicionar seu nome e sobrenome na variável 'nome' e 'sobrenome'"
+    )
 
 ####################################################################
-# Nao mexa nesse arquivo a partir DAQUI
+# Nao mexa nesse arquivo
 # Para resolver o TP modifique os arquivos exercicio_*.py que podem ser acessados no lado esquerdo.
 ####################################################################
+
+import os
+import re
 import io
 import sys
+from pygments import highlight
+from pygments.formatters import HtmlFormatter
+from pygments.lexers import PythonLexer
+from weasyprint import HTML
+
+
+def listar_exercicios():
+    exercicios = [
+        f for f in os.listdir('./') if f.endswith(".py") and "exercicio" in f
+    ]
+    exercicios.sort()
+
+    return exercicios
+
+
+def submissao_filename(nome, sobrenome, ext='pdf'):
+    return f"{nome.replace(' ','_')}_{sobrenome.replace(' ', '_')}_TP1.{ext}"
+
+
+# Function to read content from .py files
+def build_exercicios_html(outputs):
+    py_files_content = ""
+    files = listar_exercicios()
+
+    for filename, output in zip(files, outputs):
+        with open(os.path.join('./', filename), "r") as file:
+            highlighted_code = highlight(file.read(), PythonLexer(),
+                                         HtmlFormatter())
+            py_files_content += f"<h1>{filename}</h1><pre>{highlighted_code}</pre><br>"
+            py_files_content += f"<h2>Saída</h2><pre class=terminal>{output}</pre><br>"
+    return py_files_content
+
+
+def gerar_pdf(nome, sobrenome, std_output):
+    # Generate HTML content
+    html_content = f"""
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+            {HtmlFormatter().get_style_defs('.highlight')}
+        </style>
+        <style>
+            body {{
+                font-family: Arial, sans-serif;
+                margin: 0.0cm;
+            }}
+            .highlight>pre{{
+                white-space: pre-wrap; 
+                word-wrap: break-word; 
+                width: 100%;
+            }}
+            .terminal {{
+                background-color: #000000;
+                color: #00FF00;
+                font-family: monospace;
+                white-space: pre-wrap; 
+                word-wrap: break-word; 
+                width: 100%;
+            }}
+        </style>
+    </head>
+    <body>
+        <h1> Introdução a programação com Python - TP1 </h1>
+        <h2>Nome: {nome} {sobrenome}</h2>
+
+        {build_exercicios_html(split_exercicios(std_output))}
+    </body>
+    </html>
+    """
+
+    html_with_style = html_content
+    HTML(string=html_with_style).write_pdf(submissao_filename(nome, sobrenome))
+
+
+def split_exercicios(std_output):
+    # Define a expressão regular para capturar o texto entre as seções de exercício
+    pattern = re.compile(
+        r"\*{5} Exercício \d+ \*{5}\s+\n(.*?)\s+(?=\*{5} Exercício \d+ \*{5}|$)",
+        re.DOTALL)
+
+    # Encontra todas as correspondências
+    matches = pattern.findall(std_output)
+
+    exercicios = []
+    # Mostra as correspondências encontradas
+    for i, match in enumerate(matches, 1):
+        exercicios.append(match.strip())
+
+    assert len(matches) == 16
+    return exercicios
+
+
+def gerar_submissao(nome, sobrenome, std_output):
+    split_exercicios(std_output)
+    gerar_pdf(nome, sobrenome, std_output)
+
+    arquivos = listar_exercicios() + [submissao_filename(nome, sobrenome)]
+
+    zip_filename = submissao_filename(nome, sobrenome, 'zip')
+
+    #Zip files
+    import zipfile
+    with zipfile.ZipFile(zip_filename, 'w') as zip:
+        for arquivo in arquivos:
+            zip.write(arquivo)
+
 
 def escrever_cabecalho(i):
-  WIDTH = 30
-  print("")
-  print(f"***** Exercício {i:02d} *****".center(WIDTH))
+    WIDTH = 30
+    print("")
+    print(f"***** Exercício {i:02d} *****".center(WIDTH))
 
 
 class DualWriter:
+
     def __init__(self, *writers):
         self.writers = writers
 
@@ -45,44 +159,12 @@ dual_writer = DualWriter(original_stdout, stdout_capture)
 try:
     # Redireciona o stdout para o DualWriter
     sys.stdout = dual_writer
-
-
-
-    escrever_cabecalho(1)
-    import exercicio01
-    escrever_cabecalho(2)
-    import exercicio02
-    escrever_cabecalho(3)
-    import exercicio03
-    escrever_cabecalho(4)
-    import exercicio04
-    escrever_cabecalho(5)
-    import exercicio05
-    escrever_cabecalho(6)
-    import exercicio06
-    escrever_cabecalho(7)
-    import exercicio07
-    escrever_cabecalho(8)
-    import exercicio08
-    escrever_cabecalho(9)
-    import exercicio09
-    escrever_cabecalho(10)
-    import exercicio10
-    escrever_cabecalho(11)
-    import exercicio11
-    escrever_cabecalho(12)
-    import exercicio12
-    escrever_cabecalho(13)
-    import exercicio13
-    escrever_cabecalho(14)
-    import exercicio14
-    escrever_cabecalho(15)
-    import exercicio15
-    escrever_cabecalho(16)
-    import exercicio16
+    arquivos_exercicios = listar_exercicios()
+    arquivos_exercicios.sort()
+    for i in range(len(arquivos_exercicios)):
+        escrever_cabecalho(i + 1)
+        __import__(f"exercicio{i+1:02d}")
     print("")
-    
-    from gerar_submissao import gerar_submissao
 
     # Obtém o conteúdo capturado
     output = stdout_capture.getvalue()
@@ -91,4 +173,3 @@ try:
 finally:
     # Restaura o stdout original
     sys.stdout = original_stdout
-
