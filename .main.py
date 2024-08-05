@@ -1,5 +1,20 @@
+####################################################################
+# Nao mexa nesse arquivo
+# Para resolver o TP modifique os arquivos exercicio_*.py que
+# podem ser acessados no lado esquerdo.
+####################################################################
 
-from identificacao import nome, sobrenome 
+import io
+import os
+import re
+import sys
+
+from pygments import highlight
+from pygments.formatters import HtmlFormatter
+from pygments.lexers import PythonLexer
+from weasyprint import HTML
+
+from identificacao import nome, sobrenome
 
 if not nome or not sobrenome:
     print(
@@ -8,20 +23,6 @@ if not nome or not sobrenome:
     raise Exception(
         "Você deve adicionar seu nome e sobrenome na variável 'nome' e 'sobrenome'"
     )
-
-####################################################################
-# Nao mexa nesse arquivo
-# Para resolver o TP modifique os arquivos exercicio_*.py que podem ser acessados no lado esquerdo.
-####################################################################
-
-import os
-import re
-import io
-import sys
-from pygments import highlight
-from pygments.formatters import HtmlFormatter
-from pygments.lexers import PythonLexer
-from weasyprint import HTML
 
 
 def listar_exercicios():
