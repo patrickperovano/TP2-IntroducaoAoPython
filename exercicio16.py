@@ -25,4 +25,4 @@ x0 = None
 # Calcule a segunda solução
 x1 = None
 
-# Escreva o valor das soluções com uma mensagem para que seja compreendida pelo usuário (não dê print simplemente os valores)
+# Escreva o valor das soluções com uma mensagem para que seja compreendida pelo usuário (não dê print simplesmente os valores)

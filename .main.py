@@ -35,7 +35,7 @@ def listar_exercicios():
 
 
 def submissao_filename(nome, sobrenome, ext='pdf'):
-    return f"{nome.replace(' ','_')}_{sobrenome.replace(' ', '_')}_TP1.{ext}"
+    return f"{nome.replace(' ','_')}_{sobrenome.replace(' ', '_')}_TP2.{ext}"
 
 
 # Function to read content from .py files

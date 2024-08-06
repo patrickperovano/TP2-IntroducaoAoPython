@@ -22,4 +22,4 @@ profissao = nome_e_profissao[posicao_hifen:]
 
 
 # Substitua esse comentário
-print("A", profissao, nome, "ganhou medalha de prata no individual geral nas olimpíadas da Paris 2024.")
+print("A", profissao, nome, "ganhou medalha de ouro no solo e prata no individual geral nas olimpíadas da Paris 2024.")
