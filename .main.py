@@ -82,7 +82,7 @@ def gerar_pdf(nome, sobrenome, std_output):
         </style>
     </head>
     <body>
-        <h1> Introdução a programação com Python - TP1 </h1>
+        <h1> Introdução a programação com Python - TP2 </h1>
         <h2>Nome: {nome} {sobrenome}</h2>
 
         {build_exercicios_html(split_exercicios(std_output))}
