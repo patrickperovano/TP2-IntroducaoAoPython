@@ -6,12 +6,13 @@ ax**2 + bx + c = 0.
 Após receber os valores o seu código deve tentar utilizar a fórmula de Bhaskara. O código não precisa checar caso a equação não tenha solução.
 Após a resolução o código deve imprimir as duas soluções da equação. Um início de código é disponibilizado.
 """
+print("Programa solucionar de equações ax**2 + bx + c = 0")
 # Modifique as linhas de 11 a 13 para receber os valores de entrada pelo usuário
 a = 1.0
 b = -5.0 
 c = 6.0
 
-
+# Não precisa mexer no print abaixo
 print("Resolvendo a equacao: ")
 equacao = str(a) + "x**2 " + (" +" if b >= 0  else "") + str(b) + ("x +" if c >= 0  else "") + str(c) + " = 0" 
 print(equacao)
