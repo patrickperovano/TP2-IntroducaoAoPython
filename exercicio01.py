@@ -24,19 +24,16 @@ isso_eh_uma_string = 10
 Qual o tipo das variáveis a0, a1 e a2?
 """
 # Resposta
-
 """
 Qual o tipo das váriaveis b0, b1, b2, b3 e b4? 
 """
 # Resposta
-
 """
 Qual o tipo das variaveis isso_eh_um_int, isso_eh_um_float e isso_eh_uma_string?
 (Note que o nome da variável não influencia no seu tipo)
 """
 # Resposta
-
 """
-Caso existisse um código entrada_do_usuario = input(), qual seria o tipo da variável entrada_do_usuario?
+Caso existisse um código entrada_do_usuario = input(), qual seria o tipo da variável entrada_do_usuario? O que deveria ser feito caso você queira utilizar a entrada do usuário como um número inteiro?
 """
 # Resposta

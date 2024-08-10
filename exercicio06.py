@@ -1,6 +1,6 @@
 # Exercício 6
 
-""" Abaixo é apresentada a varíavel palavra. Com relação ao valor da variável palavra responda:
+""" Abaixo é apresentada a variável palavra. Com relação ao valor da variável palavra responda:
 
 a) Quantas letras possui essa palavra?
 

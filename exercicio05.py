@@ -9,7 +9,7 @@ a**b =
 a - b = 
 
 
-Do lado direito do sinal de igual deve aparecer o valor referente a conta do que aparece do lado esquerdo. O exemplo do primeiro print pedido está os valores. 
+Do lado direito do sinal de igual deve aparecer o valor referente a conta do que aparece do lado esquerdo. O exemplo do primeiro print já está feito.
 """
 
 # Troque os valores None para receber dados de entrada do usuário.

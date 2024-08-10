@@ -14,7 +14,7 @@ Por exemplo, a mensagem "Olá Alice." seria transformada em:
          ____________________________
          
 mensagem_encriptada = Olliác eA.
-
+(Veja no moddle uma figura com esse exemplo)
 Escreva um código parar desencriptar a mensagem definida na variável mensagem_encriptada e imprimir a mensagem original. Seu código deve conter comentários.
 """
 
