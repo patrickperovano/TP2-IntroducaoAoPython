@@ -9,3 +9,14 @@ km
 metros
 8046.72
 """
+
+milhas = 5
+km = round(milhas / 0.62137,5)
+metros = round(1000 * km,2)
+
+print ("milhas")
+print (milhas)
+print ("km")
+print (km)
+print ("metros")
+print (metros)
