@@ -7,10 +7,6 @@ a0 = 10
 a1 = "10"
 a2 = 10.0
 
-print (type(a0))
-print (type(a1))
-print (type(a2))
-
 b0 = a0 + a2
 b1 = a2 + a2
 b2 = 5 * a0
@@ -20,19 +16,6 @@ b4 = a0 / 2
 isso_eh_um_int = 10.0
 isso_eh_um_float = "10"
 isso_eh_uma_string = 10
-
-print (type(b0))
-print (type(b1))
-print (type(b2))
-print (type(b3))
-print (type(b4))
-
-print (type(isso_eh_um_int))
-print (type(isso_eh_um_float))
-print (type(isso_eh_uma_string))
-
-
-
 
 
 ###############################################

@@ -3,3 +3,9 @@
 """
 
 # Escreva seu código aqui
+
+minutos_entrada = input ('Insira a qtd de min: ')
+minutos_entrada_int = int(minutos_entrada)
+horas = minutos_entrada_int // 60
+minutos = minutos_entrada_int % 60
+print (f'O total de horas é de: {horas}:{minutos}')
