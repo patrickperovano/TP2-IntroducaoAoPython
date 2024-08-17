@@ -8,7 +8,6 @@ a + b =
 a**b = 
 a - b = 
 
-
 Do lado direito do sinal de igual deve aparecer o valor referente a conta do que aparece do lado esquerdo. O exemplo do primeiro print já está feito.
 """
 
@@ -17,4 +16,13 @@ a = None
 b = None
 
 # Exemplo da primeira saída que deve ser impressa
-print("a = ", a)
+
+a = input ('Insira o valor de a: '
+
+
+
+print ("a = ", a)
+print ("b = ", b)
+print ("a + b = ", a + b)
+print ("a**b = ", a ** b)
+print ("a - b = ", a - b)
