@@ -15,11 +15,10 @@ Do lado direito do sinal de igual deve aparecer o valor referente a conta do que
 a = None
 b = None
 
+a = int(input('Insira o valor de a: '))
+b = int(input('Insira o valor de b: '))
+
 # Exemplo da primeira saída que deve ser impressa
-
-a = input ('Insira o valor de a: '
-
-
 
 print ("a = ", a)
 print ("b = ", b)
