@@ -7,3 +7,9 @@ Escreva um programa que receba entrada um número inteiro e transforme o mesmo �
 
 Dica: Veja que nessa situação é melhor tratar o número como uma str pois é mais fácil de inverter o número dessa maneira. 
 """
+
+# Entrada do numero
+num_inteiro = input ("Digite um número inteiro de até 2 digitos: ")
+inverso = num_inteiro[::-1]
+palindromo = num_inteiro+inverso
+print (palindromo)

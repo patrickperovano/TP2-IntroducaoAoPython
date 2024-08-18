@@ -9,3 +9,7 @@ Escreva um código com comentários explicando para desencriptar a mensagem defi
 """
 
 mensagem_encriptada = ".ogidóc osson o rarbeuq airiugesnoc nohtyp serodamargorp sod rohlem o meN .odnacinumoc son somatse omoc árebas méugnin aifargotpirc asse moc euq azetrec ohneT !boB álO"
+
+# - Encontrada a ultima letra da mensagem e revertida atraves do slice de tras pra frente.
+mensagem = mensagem_encriptada[::-1]
+print (mensagem)

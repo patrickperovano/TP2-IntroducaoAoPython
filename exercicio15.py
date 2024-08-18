@@ -21,3 +21,20 @@ Escreva um código parar desencriptar a mensagem definida na variável mensagem_
 mensagem_encriptada = "Otleár cAelpitcaed!a .R eMsaosl vaig omruad acro mn oessssae  cnroivpot omgértaofdioa ,n iancgrueédmi tvoa iq uceo nnsoesgsuai rú llteirm an omsesnassa gmeemn sfaogie nisn."
 
 # Escreva seu código abaixo
+
+# Resposta 1: - 1) Dividem a mensagem ao meio:
+
+# Utilizado a func lean para encontra a quantidade de caracteres da mensagem.
+# Na mesma linha, divindo o valor por 2 para encontrar o meio da frase
+meio = len(mensagem_encriptada) // 2
+
+# Atribuindo a primeira metade e segunda metade em 2 var diferentes utilizando slice:
+primeira_parte = mensagem_encriptada[:meio]
+segunda_parte = mensagem_encriptada[meio:]
+
+
+
+
+
+print (primeira_parte)
+print (segunda_parte)
