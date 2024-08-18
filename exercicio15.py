@@ -22,19 +22,31 @@ mensagem_encriptada = "Otleár cAelpitcaed!a .R eMsaosl vaig omruad acro mn oess
 
 # Escreva seu código abaixo
 
-# Resposta 1: - 1) Dividem a mensagem ao meio:
+# Calcula o tamanho da mensagem
+tamanho = len(mensagem_encriptada)
 
-# Utilizado a func lean para encontra a quantidade de caracteres da mensagem.
-# Na mesma linha, divindo o valor por 2 para encontrar o meio da frase
-meio = len(mensagem_encriptada) // 2
+# Divide a mensagem ao meio
+metade = tamanho // 2
 
-# Atribuindo a primeira metade e segunda metade em 2 var diferentes utilizando slice:
-primeira_parte = mensagem_encriptada[:meio]
-segunda_parte = mensagem_encriptada[meio:]
+# Primeira metade (posições pares)
+pares = mensagem_encriptada[:metade]
+
+# Segunda metade (posições ímpares)
+impares = mensagem_encriptada[metade:]
+
+# Inicializa a mensagem desencriptada
+mensagem_desencriptada = ""
+
+# Reconstrói a mensagem original
+for i in range(metade):
+    mensagem_desencriptada += pares[i]
+    if i < len(impares):
+        mensagem_desencriptada += impares[i]
 
 
+# Adiciona o último caractere se a mensagem tiver tamanho ímpar
+if tamanho % 2 != 0:
+    mensagem_desencriptada += impares[-1]
 
-
-
-print (primeira_parte)
-print (segunda_parte)
+# Imprime a mensagem original
+print("Mensagem original:", mensagem_desencriptada)
