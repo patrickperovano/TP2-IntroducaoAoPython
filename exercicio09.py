@@ -38,6 +38,3 @@ print("\nSe estou cansado ou é tarde então eu vou dormir")
 
 # Item d
 print("\nSe eu tenho dinheiro e tempo então eu vou viajar")
-
-
-
